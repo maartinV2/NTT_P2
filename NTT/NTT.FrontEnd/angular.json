@@ -3,13 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Minstagram": {
+    "minstagram": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -17,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Minstagram",
+            "outputPath": "dist/minstagram",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,9 +24,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+
+                "node_modules/jquery/dist/jquery.min.js",
+                "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -65,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Minstagram:build"
+            "browserTarget": "minstagram:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Minstagram:build:production"
+              "browserTarget": "minstagram:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Minstagram:build"
+            "browserTarget": "minstagram:build"
           }
         },
         "test": {
@@ -91,7 +93,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -113,16 +115,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Minstagram:serve"
+            "devServerTarget": "minstagram:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Minstagram:serve:production"
+              "devServerTarget": "minstagram:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "Minstagram"
+  "defaultProject": "minstagram"
 }
