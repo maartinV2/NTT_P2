@@ -1,4 +1,5 @@
 ﻿using System;
+using IssueBuilder.MSSql.Repository;
 
 namespace NTT.Repository
 {

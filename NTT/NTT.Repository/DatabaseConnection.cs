@@ -1,12 +1,11 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using Dapper;
 
-namespace NTT.Repository
+namespace IssueBuilder.MSSql.Repository
 {
     public class DatabaseConnection : IDisposable
     {
@@ -20,7 +19,6 @@ namespace NTT.Repository
         public DatabaseConnection(DatabaseConnection db) : this(db._db)
         {
         }
-
 
         private DatabaseConnection(IDbConnection db)
         {

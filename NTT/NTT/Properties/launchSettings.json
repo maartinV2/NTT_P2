@@ -1,10 +1,11 @@
 ﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:15621",
-      "sslPort": 44322
+      "applicationUrl": "http://localhost:18083",
+      "sslPort": 44388
     }
   },
   "profiles": {
@@ -16,17 +17,16 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "NTT": {
+    "KingsHireFraud": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": false,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "applicationUrl": "http://localhost:6010",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
   }
 }
-
 
