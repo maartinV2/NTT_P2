@@ -5,14 +5,14 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:44322/api',
+  apiUrl: 'https://localhost:44388/api',
 
-  identityProvider: {
-    stsAuthority: "https://localhost:44328/",
-    clientId: "issuebuilderweb",
-    clientRoot: "http://localhost:4300/",
-    clientScope: "openid issuebuilderapi"
-  }
+  // identityProvider: {
+  //   stsAuthority: "https://localhost:44328/",
+  //   clientId: "issuebuilderweb",
+  //   clientRoot: "http://localhost:4300/",
+  //   clientScope: "openid issuebuilderapi"
+  // }
 };
 /*
  * For easier debugging in development mode, you can import the following file
