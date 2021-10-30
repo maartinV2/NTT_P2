@@ -16,34 +16,22 @@ namespace NTT.Identity
         public static IEnumerable<ApiScope> ApiScopes =>
             new List<ApiScope>
             {
-                new ApiScope("NTTapi", "NTT.API")
+                new ApiScope("ntt.api", "NTT API")
             };
 
         public static IEnumerable<Client> Clients =>
             new List<Client>
             {
-                new Client
-                {
-                    ClientId = "NTTweb",
-                    AllowedGrantTypes = GrantTypes.Code,
-                    RequireClientSecret = false,
-                    RequirePkce = true,
-                    RedirectUris = new List<string>
-                    {
-                        "http://localhost:4300/assets/oidc-client/signin-callback.html",
-                        "http://localhost:4300/assets/oidc-client/silent-callback.html"
-                    },
-                    PostLogoutRedirectUris =
-                    {
-                        "http://localhost:4300/assets/oidc-client/signout-callback.html"
-                    },
-                    AllowedCorsOrigins = {"http://localhost:4300"},
-                    AllowedScopes =
-                    {
-                        IdentityServerConstants.StandardScopes.OpenId,
-                        "NTTapi"
-                    },
+                new Client {
                     RequireConsent = false,
+                    ClientId = "angular_spa",
+                    ClientName = "Angular SPA",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowedScopes = { "openid", "profile", "email", "ntt.api" },
+                    RedirectUris = {"http://localhost:4300/auth-callback"},
+                    PostLogoutRedirectUris = {"http://localhost:4300/"},
+                    AllowedCorsOrigins = {"http://localhost:4200"},
+                    AllowAccessTokensViaBrowser = true,
                     AccessTokenLifetime = 3600
                 }
             };

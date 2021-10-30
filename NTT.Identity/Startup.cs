@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NTT.Identity.Data;
+using NTT.Identity.Data.Identity;
 
 namespace NTT.Identity
 {
@@ -21,13 +22,12 @@ namespace NTT.Identity
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<NTTIdentityContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<NTTIdentityContext>();
+            services.AddDbContext<AppIdentityDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDatabaseDeveloperPageExceptionFilter();
 
-
+            services.AddDefaultIdentity<IdentityUser>()
+                .AddEntityFrameworkStores<AppIdentityDbContext>();
 
             services.Configure<IdentityOptions>(options =>
             {

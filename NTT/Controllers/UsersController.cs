@@ -19,7 +19,7 @@ namespace NTT.API.Controllers
 
         public UsersController(IConfiguration configuration)
         {
-            _connectionString = configuration.GetValue<string>("ConnectionStrings:LocalConnection");
+            _connectionString = configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
         }
 
         // GET: api/<UsersController>
