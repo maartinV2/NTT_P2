@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NTT.Domain", "NTT.Domain\NT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NTT.Repository", "NTT.Repository\NTT.Repository.csproj", "{B9574A03-8D0D-4CAC-A76C-E7E5825419D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTT.Identity", "NTT.Identity\NTT.Identity.csproj", "{526C8038-C316-4A34-A94E-622F1444D11C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTT.Identity", "NTT.Identity\NTT.Identity.csproj", "{D2EFB47A-3892-47A9-9246-B326180EDD2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{B9574A03-8D0D-4CAC-A76C-E7E5825419D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9574A03-8D0D-4CAC-A76C-E7E5825419D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9574A03-8D0D-4CAC-A76C-E7E5825419D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{526C8038-C316-4A34-A94E-622F1444D11C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{526C8038-C316-4A34-A94E-622F1444D11C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{526C8038-C316-4A34-A94E-622F1444D11C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{526C8038-C316-4A34-A94E-622F1444D11C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2EFB47A-3892-47A9-9246-B326180EDD2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2EFB47A-3892-47A9-9246-B326180EDD2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2EFB47A-3892-47A9-9246-B326180EDD2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2EFB47A-3892-47A9-9246-B326180EDD2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
