@@ -1,8 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using NTT.Identity.Areas.Identity.Data
 
-@inject SignInManager<NTTIdentityUser> SignInManager
-@inject UserManager<NTTIdentityUser> UserManager
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
