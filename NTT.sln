@@ -4,12 +4,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NTT.API", "NTT\NTT.API.csproj", "{15451BE4-8A6E-4A20-A46E-8D5914668D4E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D2EFB47A-3892-47A9-9246-B326180EDD2D} = {D2EFB47A-3892-47A9-9246-B326180EDD2D}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NTT.Domain", "NTT.Domain\NTT.Domain.csproj", "{57E0B8D9-A4B0-48EC-B7F7-C8C40AD564F9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NTT.Repository", "NTT.Repository\NTT.Repository.csproj", "{B9574A03-8D0D-4CAC-A76C-E7E5825419D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTT.Identity", "NTT.Identity\NTT.Identity.csproj", "{D2EFB47A-3892-47A9-9246-B326180EDD2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NTT.Identity", "NTT.Identity\NTT.Identity.csproj", "{D2EFB47A-3892-47A9-9246-B326180EDD2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

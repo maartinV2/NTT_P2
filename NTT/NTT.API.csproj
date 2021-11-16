@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NTT.Domain\NTT.Domain.csproj" />
+    <ProjectReference Include="..\NTT.Identity\NTT.Identity.csproj" />
     <ProjectReference Include="..\NTT.Repository\NTT.Repository.csproj" />
   </ItemGroup>
 

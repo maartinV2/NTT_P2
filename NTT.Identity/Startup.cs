@@ -46,7 +46,6 @@ namespace NTT.Identity
 
             var identityServerBuilder = services.AddIdentityServer(options =>
                 {
-                    options.AccessTokenJwtType = "JWT";
                     options.Events.RaiseInformationEvents = true;
                     options.Events.RaiseSuccessEvents = true;
                     options.Events.RaiseErrorEvents = true;
