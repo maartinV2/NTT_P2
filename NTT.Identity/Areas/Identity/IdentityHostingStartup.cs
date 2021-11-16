@@ -12,22 +12,28 @@ namespace NTT.Identity.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {
-        public void Configure(IWebHostBuilder builder)
-        {
-            builder.ConfigureServices((context, services) => {
-                services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(
-                        context.Configuration.GetConnectionString("DefaultConnection")));
+        //public void Configure(IWebHostBuilder builder)
+        //{
+        //    builder.ConfigureServices((context, services) => {
+        //        services.AddDbContext<ApplicationDbContext>(options =>
+        //            options.UseSqlServer(
+        //                context.Configuration.GetConnectionString("DefaultConnection")));
 
-               services.AddDefaultIdentity<AppUser>(options =>
-                   {
+        //       services.AddDefaultIdentity<AppUser>(options =>
+        //           {
                        
-                       options.SignIn.RequireConfirmedAccount = true;
-                       //options.Password.RequireLowercase = false;
-                       //options.Password.RequireUppercase = false;
-                   })
-                   .AddEntityFrameworkStores<ApplicationDbContext>();
-            });
-        }
+        //               options.SignIn.RequireConfirmedAccount = true;
+        //               //options.Password.RequireLowercase = false;
+        //               //options.Password.RequireUppercase = false;
+        //           })
+        //           .AddEntityFrameworkStores<ApplicationDbContext>();
+        //    });
+        //}
+
+       public void Configure(IWebHostBuilder builder)
+       {
+           builder.ConfigureServices((context, services) => {
+           });
+       }
     }
 }

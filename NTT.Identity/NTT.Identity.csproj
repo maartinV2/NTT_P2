@@ -17,4 +17,12 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\images\Minstagram.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="StaticFiles\" />
+  </ItemGroup>
+
 </Project>

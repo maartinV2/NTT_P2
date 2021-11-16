@@ -16,7 +16,7 @@ namespace NTT.Identity
         public static IEnumerable<ApiScope> ApiScopes =>
             new List<ApiScope>
             {
-                new ApiScope("issuebuilderapi", "IssueBuilder.API")
+                new ApiScope("minstagram.api", "IssueBuilder.API")
             };
 
         public static IEnumerable<Client> Clients =>
@@ -24,24 +24,24 @@ namespace NTT.Identity
             {
                 new Client
                 {
-                    ClientId = "issuebuilderweb",
+                    ClientId = "minstagram.web",
                     AllowedGrantTypes = GrantTypes.Code,
                     RequireClientSecret = false,
                     RequirePkce = true,
                     RedirectUris = new List<string>
                     {
-                        "http://localhost:4300/assets/oidc-client/signin-callback.html",
-                        "http://localhost:4300/assets/oidc-client/silent-callback.html"
+                        "http://localhost:4200/assets/oidc-client/signin-callback.html",
+                        "http://localhost:4200/assets/oidc-client/silent-callback.html"
                     },
                     PostLogoutRedirectUris =
                     {
-                        "http://localhost:4300/assets/oidc-client/signout-callback.html"
+                        "http://localhost:4200/assets/oidc-client/signout-callback.html"
                     },
-                    AllowedCorsOrigins = {"http://localhost:4300"},
+                    AllowedCorsOrigins = {"http://localhost:4200"},
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
-                        "issuebuilderapi"
+                        "minstagram.api"
                     },
                     RequireConsent = false,
                     AccessTokenLifetime = 3600
