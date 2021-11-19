@@ -14,7 +14,7 @@ namespace NTT.API.Models.Dto
         
         public UserDto FromDomain(User user)
         {
-            return user == null ? null : new UserDto
+            return new UserDto
             {
 
                 Id = user.Id,

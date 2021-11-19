@@ -10,6 +10,7 @@
     <PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NTT.Azure.Repository\NTT.Azure.Repository.csproj" />
     <ProjectReference Include="..\NTT.Domain\NTT.Domain.csproj" />
     <ProjectReference Include="..\NTT.Identity\NTT.Identity.csproj" />
     <ProjectReference Include="..\NTT.Repository\NTT.Repository.csproj" />

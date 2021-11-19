@@ -13,11 +13,11 @@ namespace NTT.Repository
             _sqlConnString = connectionString;
         }
 
-        public IEnumerable<User> GetById(int userId)
+        public User GetById(int userId)
         {
-            var sqlQuery = $"SELECT * FROM user WHERE id = {userId}";
-            var user = _db.Query<UserData>(sqlQuery);
-            var payload = user.Select(data => data.ToDomain()).ToList();
+            var sqlQuery = $"SELECT * FROM [user] WHERE id = {userId}";
+            var payload = _db.Query<UserData>(sqlQuery).FirstOrDefault()?.ToDomain();
+          
             _db.Dispose();
             return payload;
         }

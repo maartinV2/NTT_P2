@@ -29,8 +29,8 @@ namespace NTT.API.Controllers
         public IEnumerable<UserDto> Get()
         {
             using var usersRepo = new UserRepository(_connectionString);
-            var domain = usersRepo.GetAll().ToList();
-            return domain.Select(user=> new UserDto().FromDomain(user));
+            var user = usersRepo.GetAll().ToList();
+            return user.Select(user=> new UserDto().FromDomain(user));
         }
 
         // GET api/<UsersController>/5
