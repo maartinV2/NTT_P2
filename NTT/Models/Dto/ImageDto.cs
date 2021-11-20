@@ -11,7 +11,7 @@ namespace NTT.API.Models.Dto
         public string Id { get; set; }
         public string Name { get; set; }
         public Age Age { get; set; }
-        public DateTime UploadDate { get; set; }
+        public string UploadDateString { get; set; }
         public bool Type { get; set; }
         public string Location { get; set; }
         public UserDto User { get; set; }
@@ -22,7 +22,7 @@ namespace NTT.API.Models.Dto
             {
                 Id = image.Id,
                 Name = image.Name,
-                UploadDate = image.UploadDate,
+                UploadDateString = image.UploadDate.ToString("yyyyMMdd"),
                 Type =image.Type,
                 Location=image.Location,
                 User = new UserDto().FromDomain(image.User),
@@ -38,6 +38,9 @@ namespace NTT.API.Models.Dto
                 Id = Id,
                 Name = Name,
                 Type = Type,
+                UploadDate = UploadDateString == null ? new DateTime(1970, 1, 1) : DateTime.ParseExact(UploadDateString, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture),
+                Location = Location,
+                User = User.ToDomain(),
             };
         }
     }

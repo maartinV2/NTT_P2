@@ -22,6 +22,16 @@ namespace NTT.API.Models.Dto
             };
 
         }
+        public User ToDomain()
+        {
+            return new User
+            {
+
+                Id = Id,
+                Name = Name
+            };
+
+        }
 
     }
 
