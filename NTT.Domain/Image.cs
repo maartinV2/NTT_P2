@@ -41,6 +41,6 @@ namespace NTT.Domain
     
 
 
-        public string Url => FileName.Length!=0 ? $"{AzureUrl}/{User.Id}/post/{FileName}" : "https://minstagram.blob.core.windows.net/server/no-image-available.jpg";
+        public string Url => FileExists ? $"{AzureUrl}/{User.Id}/post/{FileName}" : "https://minstagram.blob.core.windows.net/server/no-image-available.jpg";
     }
 }

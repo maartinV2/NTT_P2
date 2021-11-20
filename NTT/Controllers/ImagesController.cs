@@ -44,10 +44,17 @@ namespace NTT.API.Controllers
         {
             using var imageRepo = new ImageRepository(_connectionString);
             var images = imageRepo.GetAll().ToList();
+            var fileRepo = new FileRepository(_connectionStringAzure);
+            foreach (var image in images)
+            {
+                image.FileExists = fileRepo.FileExist(_azureBlobContainer, $"{image.User.Id}/post/{image.FileName}");
+            }
             return images.Select(image => new ImageDto().FromDomain(image));
         }
+     
 
-        [HttpGet("~/api/GetImageIdsByUserId/{userId}")]
+
+        [HttpGet("GetImageIdsByUserId/{userId}")]
         public IEnumerable<AllImagesDto> GetImageIdsByUserId(int userId)
         {
             using var imageRepo = new ImageRepository(_connectionString);
@@ -55,7 +62,7 @@ namespace NTT.API.Controllers
             return images.Select(image => new AllImagesDto().FromDomain(image));
         }
 
-        [HttpGet("~/api/image/GetAllImageIds/")]
+        [HttpGet("image/GetAllImageIds/")]
         public IEnumerable<AllImagesDto> GetAllImageIds(int userId)
         {
             using var imageRepo = new ImageRepository(_connectionString);
@@ -63,13 +70,13 @@ namespace NTT.API.Controllers
             return images.Select(image => new AllImagesDto().FromDomain(image));
         }
 
-        [HttpGet("~/api/image/{imageId}")]
+        [HttpGet("{imageId}")]
         public ActionResult<ImageDto> GetById(string imageId)
         {
             using var imageRepo = new ImageRepository(_connectionString);
             var image = imageRepo.GetById(imageId);
             var fileRepo = new FileRepository(_connectionStringAzure);
-            image.FileExists = fileRepo.FileExist(_azureBlobContainer, $"images/{image.FileName}");
+            image.FileExists = fileRepo.FileExist(_azureBlobContainer, $"{image.User.Id}/post/{image.FileName}");
             var animalDto = new ImageDto().FromDomain(image);
             return animalDto;
         }
@@ -89,19 +96,7 @@ namespace NTT.API.Controllers
             imageRepo.Delete(id);
             return 1;
         }
-        [HttpPut("~/api/image/test")]
-        public ActionResult<int> UpdateAnimal([FromBody]  ImageDto updatedImage)
-        {
-            var image = new Image
-            {
-                Id = updatedImage.Id,
-                Name = updatedImage.Name,
-                Type = updatedImage.Type
-            };
-            using var imageRepo = new ImageRepository(_connectionString);
-              imageRepo.UpdateImage(image.Id, image.Name,image.Type);
-            return 7;
-        }
+       
 
         [HttpPut]
         public ActionResult<int> Put([FromBody] JObject body)
@@ -114,7 +109,7 @@ namespace NTT.API.Controllers
         }
 
 
-        [HttpPost("~/api/image/{image_id}")]
+        [HttpPost("api/image/{image_id}")]
         public IActionResult Upload(string image_id)
         {
             try
