@@ -1,0 +1,12 @@
+C:\Development\repo\NTT_P2\NTT.Azure.Repository\bin\Debug\net5.0\NTT.Azure.Repository.deps.json
+C:\Development\repo\NTT_P2\NTT.Azure.Repository\bin\Debug\net5.0\NTT.Azure.Repository.dll
+C:\Development\repo\NTT_P2\NTT.Azure.Repository\bin\Debug\net5.0\ref\NTT.Azure.Repository.dll
+C:\Development\repo\NTT_P2\NTT.Azure.Repository\bin\Debug\net5.0\NTT.Azure.Repository.pdb
+C:\Development\repo\NTT_P2\NTT.Azure.Repository\obj\Debug\net5.0\NTT.Azure.Repository.csproj.AssemblyReference.cache
+C:\Development\repo\NTT_P2\NTT.Azure.Repository\obj\Debug\net5.0\NTT.Azure.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\repo\NTT_P2\NTT.Azure.Repository\obj\Debug\net5.0\NTT.Azure.Repository.AssemblyInfoInputs.cache
+C:\Development\repo\NTT_P2\NTT.Azure.Repository\obj\Debug\net5.0\NTT.Azure.Repository.AssemblyInfo.cs
+C:\Development\repo\NTT_P2\NTT.Azure.Repository\obj\Debug\net5.0\NTT.Azure.Repository.csproj.CoreCompileInputs.cache
+C:\Development\repo\NTT_P2\NTT.Azure.Repository\obj\Debug\net5.0\NTT.Azure.Repository.dll
+C:\Development\repo\NTT_P2\NTT.Azure.Repository\obj\Debug\net5.0\ref\NTT.Azure.Repository.dll
+C:\Development\repo\NTT_P2\NTT.Azure.Repository\obj\Debug\net5.0\NTT.Azure.Repository.pdb
