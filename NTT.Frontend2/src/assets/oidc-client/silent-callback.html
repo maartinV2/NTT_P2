@@ -1,0 +1,14 @@
+<script src="oidc-client-1-11-5.min.js"></script>
+<script>
+  isUnauthorized = error => error && error.error && ((error.error === 'login_required') || (error.status === 401 && error.statusText === 'Unauthorized'));
+
+  const userManager = new Oidc.UserManager({ response_type: 'code' });
+  userManager.signinSilentCallback().catch(error => {
+    if (isUnauthorized(error)) {
+      userManager.signinRedirect();
+      return;
+    }
+
+    console.error('silent-callback', 'signinSilentCallback', { error });
+  });
+</script>

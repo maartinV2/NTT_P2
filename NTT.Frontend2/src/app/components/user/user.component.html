@@ -1,0 +1,58 @@
+<p>user works!</p>
+
+<ng-container *ngIf="user">
+  <div class="col-2">
+    <div class="row py-1">
+      <div class="col-auto name-heading">
+        {{user.name}} {{user.id}}
+      </div>
+      <div class="col-auto cancel-heading">
+        <span class="clickable-label" (click)="clickRemoveFilter()">X</span>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="!user">
+  <div class="col-2">
+
+  </div>
+</ng-container>
+<div class="row">
+  <!-- Left side of page -->
+    <div class="col-6">
+    <div class="col-12 pb-3 mb-3" style="background-color: white; height: 300px;">
+     <div class="row" >
+
+
+          <div class="col-7 mt-3">
+               <img src="{{image?.url}}" class="w-100" style="max-height: 270px;" >
+          </div>
+          <div class="col-auto mr-4 body-bold mt-3">
+            <div class="row">
+              Upload DATE:
+            </div>
+            <br>
+            <div class="row">
+              Type:
+            </div>
+            <br>
+            <div class="row">
+              AGE:
+            </div>
+            <br>
+            <div class="row">
+              Name:
+            </div>
+            <br>
+            <br>
+            <div class="row">
+              User:
+            </div>
+            <br>
+            <div class = "my-3">
+              <label class="body-bold-italic btn btn-primary mr-5" style="position: absolute; left: 1%; " (click)="file.click()">+ Photo Upload</label>
+              <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;" multiple>
+
+            </div>
+            <br>
+          </div>

@@ -1,0 +1,12 @@
+
+.trow
+{
+   transition: transform .2s;
+}
+
+.trow:hover {
+  cursor:pointer;
+  transform: scale(1.005);
+  background:#ccc;
+  color:#fff;
+}

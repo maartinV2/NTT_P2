@@ -1,0 +1,48 @@
+
+
+
+<form class="row g-3" >
+  <div class="col-auto">
+  </div>
+  <div class="col-3">
+    <input type="search" class="form-control" id="search" placeholder="search">
+  </div>
+  <div class="col-6">
+    <button type="submit" class="btn btn-primary mb-3">Search</button>
+  </div>
+</form>
+
+<table class ="table table-hover cc-table" >
+
+  <thead class ="thead-light">
+    <tr>
+    <th>Image</th>
+    <th>Post Name</th>
+    <th>Upload Date</th>
+    <th>Time On the webs</th>
+    <th>Public</th>
+    <th>Location</th>
+    <th>Posted By</th>
+  </tr>
+  </thead>
+  <tbody class="align-middle">
+    <tr (click)="PostClicked(image)" class="clickable-row trow" *ngFor="let image of images">
+    <td>
+        <img src="{{image?.url}}" class="rounded float-start" style="max-height: 100px;" >
+    </td>
+    <td>{{image.name}}</td>
+    <td><span *ngIf="image.uploadDate?.getFullYear() > 1901">{{ image.uploadDate | date:'d LLLL y'}}</span></td>
+    <td>{{image.age.years}} years & {{image.age.months}}months</td>
+    <td>{{image.type}}</td>
+    <td>{{image.location}}</td>
+    <td>{{image.user.name}}</td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+<br>
+<div class="d-flex justify-content-center">
+<div  *ngIf="isLoading" class="loader-container spinner-border brand-spinner " role="status"  ></div>
+</div>

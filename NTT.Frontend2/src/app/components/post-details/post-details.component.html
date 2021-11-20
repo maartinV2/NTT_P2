@@ -1,0 +1,32 @@
+
+      <div class="col-8 pr-3">
+        <button class="btn btn-primary standard-button shadow-none" style=" float: right;"
+          (click)="clickbackHome()">BACK</button>
+      </div>
+
+
+      <div class="row" class="text-center">
+                <div class="col-7 mt-3 ">
+                     <img src="{{image?.url}}" class="img-fluid "  style="max-height: 300px;" >
+                </div>
+      </div>
+           <div class=" col-7 mt-3 row border p-3 m-2 bg-light border">
+                <div class="col-auto mr-4 body-bold mt-3">
+                  <div class="row">Post Name: {{image?.name}}</div>
+                  <br>
+                  <div class="row"> Upload Date: {{image?.uploadDate| date:'d LLLL y'}}
+                  </div>
+                  <br>
+                  <div class="row"> Time On the webs: {{image?.age.years}} years & {{image?.age.months}} months
+                  </div>
+                  <br>
+                  <div class="row">Public:  {{image.type}}
+                  </div>
+                  <br>
+                  <div class="row">Location: {{image.location}}
+                  </div>
+                  <br>
+                  <div class="row">Posted By:  {{image?.user.name}} {{image?.user.surname}}
+                  </div>
+                  <br>
+                </div>
