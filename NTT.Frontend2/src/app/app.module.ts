@@ -14,10 +14,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { Router } from '@angular/router';
 @NgModule({
   declarations: [
@@ -31,17 +31,17 @@ import { Router } from '@angular/router';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+
+    MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
+
+    MatFormFieldModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatFormFieldModule,
-    MatInputModule,
+
+    BrowserAnimationsModule,
+
 
 
 
