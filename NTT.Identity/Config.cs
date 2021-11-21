@@ -31,13 +31,17 @@ namespace NTT.Identity
                     RedirectUris = new List<string>
                     {
                         "http://localhost:4200/assets/oidc-client/signin-callback.html",
-                        "http://localhost:4200/assets/oidc-client/silent-callback.html"
+                        "http://localhost:4200/assets/oidc-client/silent-callback.html",
+                        "https://minstagramweb.azurewebsites.net/assets/oidc-client/signin-callback.html",
+                        "https://minstagramweb.azurewebsites.net/assets/oidc-client/silent-callback.html"
+
                     },
                     PostLogoutRedirectUris =
                     {
-                        "http://localhost:4200/assets/oidc-client/signout-callback.html"
+                        "http://localhost:4200/assets/oidc-client/signout-callback.html",
+                        "https://minstagramweb.azurewebsites.net/assets/oidc-client/signout-callback.html"
                     },
-                    AllowedCorsOrigins = {"http://localhost:4200"},
+                    AllowedCorsOrigins = {"http://localhost:4200","https://minstagramweb.azurewebsites.net"},
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,

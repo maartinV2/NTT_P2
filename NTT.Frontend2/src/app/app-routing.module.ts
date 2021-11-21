@@ -12,11 +12,11 @@ import { AuthGuardService  } from './routeguards/AuthGuardService';
 
 // canActivate: [AuthorizedUserRouteGuard]
 const routes: Routes = [
-  { path: '', component: HomeComponent ,canActivate: [AuthGuardService]  },
-  { path: 'home', component: HomeComponent,canActivate: [AuthGuardService] },
+  { path: '', component: HomeComponent ,canActivate: [AuthGuardService] },
+  { path: 'home', component: HomeComponent,canActivate: [AuthGuardService]  },
   {path: 'user', component: UserComponent ,canActivate: [AuthGuardService] },
   {path: 'PostDetails/:id', component: PostDetailsComponent,canActivate: [AuthGuardService]  },
-  {path: 'Post', component: PostComponent ,canActivate: [AuthGuardService] }
+  {path: 'Post', component: PostComponent,canActivate: [AuthGuardService]   }
 
 ];
 
