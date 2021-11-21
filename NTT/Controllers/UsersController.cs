@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using NTT.Identity.Areas.Identity.Data;
+using NTT.Identity.Controller;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,40 +25,21 @@ namespace NTT.API.Controllers
         public UsersController(IConfiguration configuration)
         {
             _connectionString = configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
+
         }
 
-        // GET: api/<UsersController>
-        [HttpGet]
-        public IEnumerable<UserDto> Get()
+
+
+        [HttpGet("{userId}")]
+        public ActionResult<UserDto> GetById(string userId)
         {
-            using var usersRepo = new UserRepository(_connectionString);
-            var user = usersRepo.GetAll().ToList();
-            return user.Select(user=> new UserDto().FromDomain(user));
+            using var userRepo = new UserRepository(_connectionString);
+            var user = userRepo.GetById(userId);
+            var userDto = new UserDto().FromDomain(user);
+            return userDto;
         }
 
-        // GET api/<UsersController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
 
-        // POST api/<UsersController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
 
-        // PUT api/<UsersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<UsersController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

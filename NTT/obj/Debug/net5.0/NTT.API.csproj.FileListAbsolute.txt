@@ -212,4 +212,3 @@ C:\Development\repo\NTT_P2\NTT\obj\Debug\net5.0\NTT.API.dll
 C:\Development\repo\NTT_P2\NTT\obj\Debug\net5.0\ref\NTT.API.dll
 C:\Development\repo\NTT_P2\NTT\obj\Debug\net5.0\NTT.API.pdb
 C:\Development\repo\NTT_P2\NTT\obj\Debug\net5.0\NTT.API.genruntimeconfig.cache
-C:\Development\repo\NTT_P2\NTT\bin\Debug\net5.0\NTT.Identity.StaticWebAssets.xml

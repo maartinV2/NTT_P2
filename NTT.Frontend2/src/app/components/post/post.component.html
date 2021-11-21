@@ -18,17 +18,17 @@
 
           <div class="input-group input-group-sm mb-3">
             <span class="input-group-text" id="inputGroup-sizing-sm">FileName</span>
-            <input formControlName="name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            <input formControlName="name" required type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
           </div>
 
         </div>
 
         <div class="col-12 col-lg-6">
           <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-            <input formControlName="type" type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+            <input value="Public" formControlName="type" type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
             <label class="btn btn-outline-secondary" for="btnradio1">Public</label>
 
-            <input formControlName="type" type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <input value="Private" formControlName="type" type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
             <label class="btn btn-outline-secondary" for="btnradio2">Private</label>
 
 
@@ -38,7 +38,7 @@
         <div class="col-12 col-lg-6">
           <div class="input-group input-group-sm mb-3">
             <span class="input-group-text" id="inputGroup-sizing-sm">Location</span>
-            <input formControlName="location" formControlName="name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            <input formControlName="location" required  type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
           </div>
         </div>
 
@@ -52,9 +52,12 @@
 
         <div class="col-12 col-lg-6">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button class="btn btn-secondary me-md-2" type="button">Save</button>
+          <button  (click)="createPostClick()" class="btn btn-secondary me-md-2" type="button">Save</button>
         </div>
       </div>
+
+
+
 </div>
 
 </div>

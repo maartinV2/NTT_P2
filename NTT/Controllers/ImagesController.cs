@@ -55,7 +55,7 @@ namespace NTT.API.Controllers
 
 
         [HttpGet("GetImageIdsByUserId/{userId}")]
-        public IEnumerable<AllImagesDto> GetImageIdsByUserId(int userId)
+        public IEnumerable<AllImagesDto> GetImageIdsByUserId(string userId)
         {
             using var imageRepo = new ImageRepository(_connectionString);
             var images = imageRepo.GetImageIdsByUserId(userId).ToList();
@@ -63,7 +63,7 @@ namespace NTT.API.Controllers
         }
 
         [HttpGet("image/GetAllImageIds/")]
-        public IEnumerable<AllImagesDto> GetAllImageIds(int userId)
+        public IEnumerable<AllImagesDto> GetAllImageIds(string userId)
         {
             using var imageRepo = new ImageRepository(_connectionString);
             var images = imageRepo.GetAllImageIds().ToList();
@@ -77,8 +77,8 @@ namespace NTT.API.Controllers
             var image = imageRepo.GetById(imageId);
             var fileRepo = new FileRepository(_connectionStringAzure);
             image.FileExists = fileRepo.FileExist(_azureBlobContainer, $"{image.User.Id}/post/{image.FileName}");
-            var animalDto = new ImageDto().FromDomain(image);
-            return animalDto;
+            var imageDto = new ImageDto().FromDomain(image);
+            return imageDto;
         }
 
 
@@ -86,9 +86,11 @@ namespace NTT.API.Controllers
         public ActionResult<int> Create([FromBody] ImageDto imageDto)
         {
             using var imageRepo = new ImageRepository(_connectionString);
-            imageRepo.Create(imageDto.ToDomain());
-            return 0;
+           var id= imageRepo.Create(imageDto.ToDomain());
+            return id;
         }
+
+
         [HttpDelete]
         public ActionResult<int> Delete([FromBody] int id)
         {
@@ -98,15 +100,6 @@ namespace NTT.API.Controllers
         }
        
 
-        [HttpPut]
-        public ActionResult<int> Put([FromBody] JObject body)
-        {
-            var animalID = int.Parse(body["body"]["image_id"].ToString());
-            var farmerID = int.Parse(body["body"]["user_id"].ToString());
-            using var imageRepo = new ImageRepository(_connectionString);
-            imageRepo.SetUserId(animalID, farmerID);
-            return 2;
-        }
 
 
         [HttpPost("api/image/{image_id}")]

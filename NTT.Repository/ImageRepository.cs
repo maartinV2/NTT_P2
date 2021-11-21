@@ -25,11 +25,11 @@ namespace NTT.Repository
               return payload;
         }
 
-        public IEnumerable<Image> GetImageIdsByUserId(int userId)
+        public IEnumerable<Image> GetImageIdsByUserId(string userId)
         {
                 var sqlQuery = $"SELECT id FROM images WHERE user_id = {userId}";
-                var animalData = _db.Query<ImageData>(sqlQuery).ToList();
-                var payload = animalData.Select(data => data.ToDomain(_sqlConnString)).ToList();
+                var imageData = _db.Query<ImageData>(sqlQuery).ToList();
+                var payload = imageData.Select(data => data.ToDomain(_sqlConnString)).ToList();
                 _db.Dispose();
                 return payload;
         }
@@ -37,26 +37,27 @@ namespace NTT.Repository
         public IEnumerable<Image> GetAllImageIds()
         {
                 var sqlQuery = "SELECT id FROM images";
-                var animalData = _db.Query<ImageData>(sqlQuery).ToList();
-                var payload = animalData.Select(data => data.ToDomain(_sqlConnString)).ToList();
+                var imageData = _db.Query<ImageData>(sqlQuery).ToList();
+                var payload = imageData.Select(data => data.ToDomain(_sqlConnString)).ToList();
                 _db.Dispose();
                 return payload;
         }
 
         public int Create(Image image)
         {
-            var sqlExecute = @"INSERT INTO images (id,name,upload_date,user_id,type, location)
+            var sqlExecute = @"INSERT INTO images (name,upload_date,user_id,type, location)
                             VALUES
-                            (@id,@name,@upload_date,@user_id,@type,@location)";
+                            (@name,@upload_date,@user_id,@type,@location)";
             var param = new ImageData()
             {
-                id = image.Id,
+                name = image.Name,
                 user_id = image.User.Id,
                 upload_date = image.UploadDate,
                 type = image.Type,
                 location = image.Location
-            }; 
-            return _db.Execute(sqlExecute, param);
+            };
+            var insertedId = _db.Query<int>(sqlExecute, param).FirstOrDefault();
+            return insertedId;
         }
         public int UpdateImage(string imageId, string name , bool type)
         {
@@ -70,17 +71,7 @@ namespace NTT.Repository
             return _db.Execute(sqlExecute);
         }
 
-        public int SetUserId(int imageId, int userId)
-        {   
-            if (userId > 0)
-            {
-                var sqlExecute = $"UPDATE images SET user_Id = {userId} WHERE id = {imageId}";
-                return _db.Execute(sqlExecute);
-            }
-            else { var sqlExecute = $"UPDATE images SET user_Id = NULL WHERE id = {imageId}";
-                return _db.Execute(sqlExecute);
-            }
-        }
+ 
 
 
         public Image GetById(string imageId)
@@ -99,7 +90,7 @@ namespace NTT.Repository
         public string id { get; set; }
         public string name { get; set; }
         public DateTime upload_date { get; set; }
-        public int user_id { get; set; }
+        public string user_id { get; set; }
         public bool type { get; set; }
         public string location { get; set; }
 
@@ -114,7 +105,7 @@ namespace NTT.Repository
                 Location = location
             };
 
-            if (user_id > 0)
+            if (user_id !="")
             {
                 using var userRepo = new UserRepository(connectionString);
                 image.User = userRepo.GetById(user_id);

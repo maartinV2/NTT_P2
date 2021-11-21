@@ -5,6 +5,7 @@ import {map} from "rxjs/operators"
 import { HttpService } from './http/http.service';
 import { UserModel } from '../models/userModel';
 import { UserDto } from '../dto/Userdto';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ import { UserDto } from '../dto/Userdto';
 export class UserService {
 
   constructor(private httpService: HttpService) { }
-  selecteduser : UserModel;
+  loggedInUser : UserModel;
   routeString = `${environment.apiUrl}/Users`;
 
 
@@ -22,5 +23,15 @@ export class UserService {
           return (dto as UserDto[]).map(userDto => Object.assign(new UserDto(), userDto).ToModel());
       }));
 
+
+  }
+
+
+  getById$ = (userId : string):Observable<UserModel> => {
+    let route : string = this.routeString+"/"+userId;
+    return this.httpService.get(route)
+    .pipe(map(model => {
+        return (Object.assign(new UserDto(), model).ToModel());
+    }))
   }
 }

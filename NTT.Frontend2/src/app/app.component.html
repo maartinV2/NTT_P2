@@ -14,13 +14,14 @@
           <a class="nav-link " href="Post" id="navbarScrollingDropdown" role="button"  aria-expanded="false">
              Post
           </a>
-
         </li>
-
-
       </ul>
+
       <li class="d-flex">
-        <a class="nav-link trow"   (click)="goToPage()">Your Profile</a>
+        <a  class="nav-link text-bb fs-07 "  >Hi   ! </a>
+      </li>
+      <li class="d-flex">
+        <a  class="nav-link text-bb fs-07 trow"  (click)="goToPage()">{{LoggedInUser.name}}</a>
       </li>
           <li class="d-flex">
               <a class="nav-link text-bb fs-07" href="" (click)="logout()">LOG OUT</a>

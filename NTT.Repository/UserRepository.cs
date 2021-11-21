@@ -13,29 +13,30 @@ namespace NTT.Repository
             _sqlConnString = connectionString;
         }
 
-        public User GetById(int userId)
+        public User GetById(string userId)
         {
-            var sqlQuery = $"SELECT * FROM [user] WHERE id = {userId}";
+            var sqlQuery = $"SELECT Id,FirstName,LastName FROM [AspNetUsers] WHERE id = '{userId}'";
             var payload = _db.Query<UserData>(sqlQuery).FirstOrDefault()?.ToDomain();
           
             _db.Dispose();
             return payload;
         }
-        public IEnumerable<User> GetAll()
-        {
-            var sqlQuery = "SELECT * FROM [user]";
-            var user = _db.Query<UserData>(sqlQuery);
-            var payload = user.Select(data => data.ToDomain()).ToList();
-            _db.Dispose();
-            return payload;
-        }
+        //public IEnumerable<User> GetAll()
+        //{
+        //    var sqlQuery = "SELECT * FROM [user]";
+        //    var user = _db.Query<UserData>(sqlQuery);
+        //    var payload = user.Select(data => data.ToDomain()).ToList();
+        //    _db.Dispose();
+        //    return payload;
+        //}
 
     }
 
     internal class UserData 
     {
-        public int id { get; set; }
-        public string name { get; set; }
+        public string id { get; set; }
+        public string lastname { get; set; }
+        public string firstname { get; set; }
 
         public User ToDomain()
         {
@@ -43,7 +44,7 @@ namespace NTT.Repository
             var domain = new User 
             {
                 Id = id,
-                Name = name,
+                Name = firstname,
             };
             return domain;
         }

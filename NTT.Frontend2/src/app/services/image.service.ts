@@ -47,4 +47,6 @@ export class ImageService {
     dto.FromModel(image);
     return this.httpService.post(route,  dto.FromModel(image))
 }
+
+
 }
