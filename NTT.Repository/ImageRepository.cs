@@ -46,6 +46,7 @@ namespace NTT.Repository
         public int Create(Image image)
         {
             var sqlExecute = @"INSERT INTO images (name,upload_date,user_id,type, location)
+OUTPUT INSERTED.Id
                             VALUES
                             (@name,@upload_date,@user_id,@type,@location)";
             var param = new ImageData()

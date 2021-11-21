@@ -1,5 +1,5 @@
 import { HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { ImageDto } from '../dto/imagedto';
 import { ImageModel } from '../models/imageModel';
 import { UserModel } from '../models/userModel';
+import { FileService } from './file.service';
 import { HttpService } from './http/http.service';
 
 @Injectable({
@@ -14,11 +15,11 @@ import { HttpService } from './http/http.service';
 })
 export class ImageService {
 
-  constructor(private httpService: HttpService,private router: Router) { }
+  constructor(private httpService: HttpService,private router: Router,private fileService:FileService) { }
 
   selectedUser : UserModel;
   routeString = `${environment.apiUrl}/Images`;
-
+  insertedId:string;
 
   selectedImage : ImageModel;
   get$ = () => {
@@ -41,12 +42,21 @@ export class ImageService {
   }
 
 
-  createPost$ = (image: ImageModel) => {
+  createPost$ = (image: ImageModel, formData: FormData) => {
     let route= `${this.routeString}`;
     let dto = new ImageDto;
     dto.FromModel(image);
-    return this.httpService.post(route,  dto.FromModel(image))
-}
+     return this.httpService.post(route,  dto.FromModel(image)).subscribe(insertedId=>{
+      this.fileService.UploadFile(formData, insertedId.toString(),image.user.id.toString())
+      return insertedId;
+    })
+
+  }
 
 
 }
+
+
+
+
+

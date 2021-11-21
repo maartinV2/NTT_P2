@@ -86,7 +86,7 @@ namespace NTT.API.Controllers
         public ActionResult<int> Create([FromBody] ImageDto imageDto)
         {
             using var imageRepo = new ImageRepository(_connectionString);
-           var id= imageRepo.Create(imageDto.ToDomain());
+            var id= imageRepo.Create(imageDto.ToDomain());
             return id;
         }
 
@@ -102,8 +102,8 @@ namespace NTT.API.Controllers
 
 
 
-        [HttpPost("api/image/{image_id}")]
-        public IActionResult Upload(string image_id)
+        [HttpPost("~/api/post/image/{imageId}:{userId}")]
+        public IActionResult Upload(string imageId,string userId )
         {
             try
             {
@@ -112,9 +112,9 @@ namespace NTT.API.Controllers
 
                 if (file.Length > 0)
                 {
-                    string folder = "Images/";
+                    string folder = userId+"/post/";
 
-                    string fileName = folder + image_id + ".jpg";
+                    string fileName = folder + imageId + ".jpg";
 
                     string fileType = file.ContentType;
 

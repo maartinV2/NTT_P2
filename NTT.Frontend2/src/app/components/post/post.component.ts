@@ -27,7 +27,7 @@ export class PostComponent implements OnInit {
 
 
 
-   currentDate : string = new Date().toDateString();
+   currentDate :   Date;
    maxDate: Date;
    progress= 0;
    image: ImageModel;
@@ -36,6 +36,8 @@ export class PostComponent implements OnInit {
    LogedInUserId:string;
    LoggedInUser:UserModel;
 
+   InsertedId:string;
+   formData : FormData;
    createForm: FormGroup;
    get uploadDateControl() {
     return this.createForm.controls.uploadDate;
@@ -53,25 +55,7 @@ export class PostComponent implements OnInit {
     this.getUserId();
   }
 
-  createPost$() {
-   this.newImage.name=this.createForm.value.name;
-   this.newImage.location=this.createForm.value.location;
-   console.log(this.createForm.value.type);
 
-   if(this.createForm.value.type=="Public"){
-    this.newImage.type=true;
-   }
-   else{
-    this.newImage.type=false;
-   }
-   this.newImage.user=this.LoggedInUser;
-    console.log(this.newImage);
-
-    var insertedId= this.imageService.createPost$(this.newImage);
-     return insertedId;
-    //call upload function here use id that is returned
-
-  }
 
   getUserId(): void {
     this.authService.getUser()
@@ -93,34 +77,40 @@ export class PostComponent implements OnInit {
 
 
   createPostClick(): void {
-    this.createPost$().subscribe(payload => {
-      this.router.navigate(['PostDetails', this.image.id]);
-    });;
-
-  }
+    this.createPost();
+    };
 
 
-  public uploadFile = (files) => {
-    if (files.length === 0) {
-      return;
-    }
-    let fileToUpload = <File>files[0];
-    const formData = new FormData();
-    formData.append('file', fileToUpload, fileToUpload.name);
-    this.router.navigateByUrl('/Home', { skipLocationChange: true }).then(() => {
-      this.fileService.UploadFile(formData, this.image.id);
-      this.router.navigate(['/PostDetails/'+this.image.id]);
-     });
-   }
 
-  //  public uploadNoteFile = (noteFiles) => {
-  //   if (noteFiles.length === 0) {
-  //     return;
-  //   }
-  //   let fileToUpload = <File>noteFiles[0];
-  //   this.formData = new FormData();
-  //   this.formData.append('noteFile', fileToUpload, fileToUpload.name);
-  //  }
+
+     public uploadFile = (file) => {
+      if (file.length === 0) {
+        return;
+      }
+      let fileToUpload = <File>file[0];
+      this.formData = new FormData();
+      this.formData.append('noteFile', fileToUpload, fileToUpload.name);
+     }
+
+     createPost() {
+      this.newImage.name=this.createForm.value.name;
+      this.newImage.location=this.createForm.value.location;
+      this.newImage.uploadDate=this.currentDate;
+
+      if(this.createForm.value.type=="Public"){
+       this.newImage.type=true;
+      }
+      else{
+       this.newImage.type=false;
+      }
+      this.newImage.user=this.LoggedInUser;
+
+      this.imageService.createPost$(this.newImage,this.formData);
+
+
+     }
+
+
   }
 
 

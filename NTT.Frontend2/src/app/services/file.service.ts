@@ -15,14 +15,14 @@ import { environment } from "src/environments/environment";
 
     constructor(private httpService: HttpClient) { }
 
-    routeString = `${environment.apiUrl}/post/`;
+    routeString = `${environment.apiUrl}/post`;
 
 
 
     @Output() public onUploadFinished = new EventEmitter();
 
-    public UploadFile(formData : FormData, image_id : string){
-        const url = `${environment.apiUrl}/image/${image_id}`;
+    public UploadFile(formData : FormData, image_id : string, userId : string){
+        const url = `${this.routeString}/image/${image_id}:${userId}`;
 
         this.httpService.post(url, formData, {reportProgress: true, observe: 'events'})
           .subscribe(event => {
