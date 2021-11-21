@@ -1,9 +1,0 @@
-<script src="oidc-client-1-11-5.min.js"></script>
-<script>
-  new Oidc.UserManager({ response_type: 'code' }).signinRedirectCallback().then(user => {
-    window.history.replaceState((user && user.state && user.state.data) || {}, window.document.title, window.location.origin);
-    window.location.replace((user && user.state && user.state.url) || '/');
-  }, error => {
-    console.error('signin-callback', 'signinRedirectCallback', { error });
-  });
-</script>

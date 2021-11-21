@@ -27,7 +27,7 @@ export class PostComponent implements OnInit {
 
 
 
-   currentDate :   Date;
+   currentDate :string = new Date().toDateString();;
    maxDate: Date;
    progress= 0;
    image: ImageModel;
@@ -39,9 +39,7 @@ export class PostComponent implements OnInit {
    InsertedId:string;
    formData : FormData;
    createForm: FormGroup;
-   get uploadDateControl() {
-    return this.createForm.controls.uploadDate;
-  }
+
 
   ngOnInit(): void {
     this.maxDate = new Date;
@@ -95,7 +93,9 @@ export class PostComponent implements OnInit {
      createPost() {
       this.newImage.name=this.createForm.value.name;
       this.newImage.location=this.createForm.value.location;
-      this.newImage.uploadDate=this.currentDate;
+      this.newImage.uploadDate= new Date();
+
+
 
       if(this.createForm.value.type=="Public"){
        this.newImage.type=true;

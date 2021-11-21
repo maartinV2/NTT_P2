@@ -28,7 +28,8 @@ export class HomeComponent implements OnInit {
   images: ImageModel[];
   destroy$ =new Subject<void>();
   isLoading = true;
-
+  filterString = "";
+ filteredImages: ImageModel[];
   allUsers : UserModel[];
 
   ngOnInit(): void {
@@ -39,6 +40,7 @@ export class HomeComponent implements OnInit {
 
     this.imageService.get$().pipe(takeUntil(this.destroy$)).subscribe(images =>{
       this.images=images;
+      this.filteredImages = this.images;
 
 
     });
@@ -52,6 +54,21 @@ export class HomeComponent implements OnInit {
   }
 
 
+  searchKeyUp(){
+    this.updateFilteredIssues();
+
+
+
+   }
+   updateFilteredIssues(){
+    this.filteredImages= this.filterString=== ""? this.filteredImages: this.filteredImages.filter(image=> (image.location.toLocaleLowerCase().includes(this.filterString.toLocaleLowerCase()) || image.name.toLocaleLowerCase().includes(this.filterString.toLocaleLowerCase())));
+    this.filteredImages= this.filterString=== ""? this.filteredImages: this.filteredImages.filter(image=> (image.name.toLocaleLowerCase().includes(this.filterString.toLocaleLowerCase()) || image.name.toLocaleLowerCase().includes(this.filterString.toLocaleLowerCase())));
+
+    if(this.filteredImages.length<1 ||this.filterString=== "")
+    {
+      this.filteredImages= this.images;
+    }
+   }
 
 
 }

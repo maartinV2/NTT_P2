@@ -52,10 +52,18 @@
 
         <div class="col-12 col-lg-6">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button  (click)="createPostClick()" class="btn btn-secondary me-md-2" type="button">Save</button>
+          <button (click)="createPostClick()" class="btn btn-secondary me-md-2" type="button" data-toggler="collapse" data-target="#alert" >Save</button>
         </div>
       </div>
 
+      <div id="alert" class="collapse">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success!!!</strong> Upload Complete
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+             <span aria-hidden="true">&times;</span>
+         </button>
+        </div>
+      </div>
 
 
 </div>

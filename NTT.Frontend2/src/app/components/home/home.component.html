@@ -1,16 +1,16 @@
 
 
 
-<form class="row g-3" >
-  <div class="col-auto">
+ <div class="input-group mb-3">
+  <div class="input-group-prepend">
+      <span class="input-group-text">
+          <img src="assets/images/search.png" height="25px" width="25px">
+      </span>
   </div>
-  <div class="col-3">
-    <input type="search" class="form-control" id="search" placeholder="search">
-  </div>
-  <div class="col-6">
-    <button type="submit" class="btn btn-primary mb-3">Search</button>
-  </div>
-</form>
+  <input type="text" class="form-control fs-09" [(ngModel)]="filterString" (keyup)="searchKeyUp()"  placeholder="search" aria-label="search">
+</div>
+
+
 
 <table class ="table table-hover cc-table" >
 
@@ -26,7 +26,7 @@
   </tr>
   </thead>
   <tbody class="align-middle">
-    <tr (click)="PostClicked(image)" class="clickable-row trow" *ngFor="let image of images">
+    <tr (click)="PostClicked(image)" class="clickable-row trow" *ngFor="let image of filteredImages">
     <td>
         <img src="{{image?.url}}" class="rounded float-start" style="max-height: 100px;" >
     </td>
