@@ -48,6 +48,8 @@ export class ImageService {
     dto.FromModel(image);
      return this.httpService.post(route,  dto.FromModel(image)).subscribe(insertedId=>{
       this.fileService.UploadFile(formData, insertedId.toString(),image.user.id.toString())
+
+      this.router.navigate(['PostDetails', insertedId]);
       return insertedId;
     })
 
