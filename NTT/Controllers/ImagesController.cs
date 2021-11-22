@@ -81,6 +81,13 @@ namespace NTT.API.Controllers
             return imageDto;
         }
 
+        [HttpPut]
+        public ActionResult<int> Update([FromBody] ImageDto imageDto)
+        {
+            using var imageRepo = new ImageRepository(_connectionString);
+            var id = imageRepo.UpdateImage(imageDto.ToDomain());
+            return id;
+        }
 
         [HttpPost]
         public ActionResult<int> Create([FromBody] ImageDto imageDto)

@@ -60,9 +60,9 @@ OUTPUT INSERTED.Id
             var insertedId = _db.Query<int>(sqlExecute, param).FirstOrDefault();
             return insertedId;
         }
-        public int UpdateImage(string imageId, string name , bool type)
+        public int UpdateImage(Image image)
         {
-            var sql = $"UPDATE images SET name = '{name}',type = '{type}', WHERE id = '{imageId}'";
+            var sql = $"UPDATE images SET name = '{image.Name}',type = '{image.Type}' WHERE id = '{image.Id}'";
             return _db.Execute(sql);
         }
 

@@ -55,7 +55,16 @@ export class ImageService {
 
   }
 
+  updatePost$ = (updatedImage: ImageModel) => {
+    let route= `${this.routeString}`;
+    let dto = new ImageDto;
+    dto.FromModel(updatedImage);
+     return this.httpService.put(route,  dto.FromModel(updatedImage)).subscribe(insertedId=>{
+      this.router.navigate(['PostDetails', insertedId]);
+      return insertedId;
+    })
 
+}
 }
 
 

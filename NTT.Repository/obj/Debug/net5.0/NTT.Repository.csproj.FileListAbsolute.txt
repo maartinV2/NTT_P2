@@ -23,7 +23,6 @@ C:\Development\repo\NTT_P2\NTT.Repository\obj\Debug\net5.0\NTT.Repository.Genera
 C:\Development\repo\NTT_P2\NTT.Repository\obj\Debug\net5.0\NTT.Repository.AssemblyInfoInputs.cache
 C:\Development\repo\NTT_P2\NTT.Repository\obj\Debug\net5.0\NTT.Repository.AssemblyInfo.cs
 C:\Development\repo\NTT_P2\NTT.Repository\obj\Debug\net5.0\NTT.Repository.csproj.CoreCompileInputs.cache
-C:\Development\repo\NTT_P2\NTT.Repository\obj\Debug\net5.0\NTT.Repository.csproj.CopyComplete
 C:\Development\repo\NTT_P2\NTT.Repository\obj\Debug\net5.0\NTT.Repository.dll
 C:\Development\repo\NTT_P2\NTT.Repository\obj\Debug\net5.0\ref\NTT.Repository.dll
 C:\Development\repo\NTT_P2\NTT.Repository\obj\Debug\net5.0\NTT.Repository.pdb

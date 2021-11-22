@@ -16,9 +16,12 @@ export class PostDetailsComponent implements OnInit {
   image :ImageModel;
   user :UserModel;
   imageId : string;
+  imageDetailsForm: any;
   constructor(private router: Router,
     private route: ActivatedRoute,
     private imageService: ImageService,
+    public formBuilder: FormBuilder,
+
    ) { }
 
   ngOnInit(): void {
@@ -33,11 +36,30 @@ export class PostDetailsComponent implements OnInit {
 
       setTimeout;
      });
+
+
+    this.imageDetailsForm = this.formBuilder.group({
+      image_location: [''],
+      image_name: [''],
+      image_public: ['']
+    })
   }
 
 
   clickbackHome(){
     this.router.navigate(['/home'])
   }
+
+  eidtPostClick(){
+console.log(this.image);
+
+    this.imageService.updatePost$(this.image);
+  }
+
+  status: boolean = false;
+  editToggleEvent(){
+      this.status = !this.status;
+  }
+
 
 }

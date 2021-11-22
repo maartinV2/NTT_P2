@@ -6,27 +6,77 @@
 
 
       <div class="row" class="text-center">
+        <div class="col-7 mt-3 ">
+        <button class=" btn-sm btn-primary standard-button shadow-none" style=" float: right; " data-target="#updateImage" (click)="eidtPostClick()"
+        >save</button>
+      </div>
+      <div class="row" class="text-center">
+        <div class="col-7 mt-3">
+        <button class=" btn-sm btn-primary standard-button shadow-none" style=" float: right; "  (click)="editToggleEvent()" >
+        Toggle Edit</button>
+      </div>
+
+
+
+      <div class="row" class="text-center">
                 <div class="col-7 mt-3 ">
                      <img src="{{image?.url}}" class="img-fluid "  style="max-height: 300px;" >
                 </div>
       </div>
            <div class=" col-7 mt-3 row border p-3 m-2 bg-light border">
                 <div class="col-auto mr-4 body-bold mt-3">
-                  <div class="row">Post Name: {{image?.name}}</div>
+                  <div class="row">Post Name: </div>
                   <br>
-                  <div class="row"> Upload Date: {{image?.uploadDate| date:'d LLLL y'}}
+                  <div class="row"> Upload Date:
                   </div>
                   <br>
-                  <div class="row"> Time On the webs: {{image?.age.years}} years & {{image?.age.months}} months
+                  <div class="row"> Time On the webs:
                   </div>
                   <br>
-                  <div class="row">Public:  {{image.type}}
+                  <div class="row">Public:
                   </div>
                   <br>
-                  <div class="row">Location: {{image.location}}
+                  <div class="row">Location:
                   </div>
                   <br>
-                  <div class="row">Posted By:  {{image?.user.name}} {{image?.user.surname}}
+                  <div class="row">Posted By:
                   </div>
                   <br>
                 </div>
+                <div class="col-auto body-regular mt-3">
+                  <div class="row  text-center">
+                    <input type="text" [(ngModel)]="image.name" [ngClass]="status ? 'editable' : 'uneditable'">
+                    <span *ngIf="!image?.name">Not Specified</span>
+                    <!-- {{ animal?.birthDate | date:'d LLLL y'}} -->
+                  </div>
+                  <br>
+                  <div class="row text-center">
+                    <!-- {{animal?.colour}} -->
+                    <span *ngIf="!!image?.uploadDate">{{image?.uploadDate| date:'d LLLL y'}}</span>
+                    <span *ngIf="!image?.uploadDate">Not Specified</span>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <b class="text"> {{image?.age.years}} years & {{image?.age.months}} months</b>
+                  </div>
+                  <br>
+                  <div class="row text-center">
+                    <input type="checkbox" [(ngModel)]="image.type" [ngClass]="status ? 'editable' : 'uneditable'">
+                  </div>
+                  <br>
+                  <div class="row text-center" >
+                    <input type="text" [(ngModel)]="image.location" [ngClass]="status ? 'editable' : 'uneditable'">
+                  </div>
+                  <br>
+                  <div  class="row text-center">
+                    {{image?.user.name}} {{image?.user.surname}}
+                  </div>
+
+                  <br>
+                  <br>
+
+
+
+
+
+</div>

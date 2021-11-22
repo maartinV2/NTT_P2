@@ -44,7 +44,6 @@ C:\Development\repo\NTT_P2\NTT\bin\Debug\net5.0\NTT.Identity.Views.pdb
 C:\Development\repo\NTT_P2\NTT\bin\Debug\net5.0\NTT.Identity.deps.json
 C:\Development\repo\NTT_P2\NTT\bin\Debug\net5.0\NTT.Identity.runtimeconfig.json
 C:\Development\repo\NTT_P2\NTT\bin\Debug\net5.0\NTT.Identity.runtimeconfig.dev.json
-C:\Development\repo\NTT_P2\NTT\bin\Debug\net5.0\NTT.Identity.StaticWebAssets.xml
 C:\Development\repo\NTT_P2\NTT\bin\Debug\net5.0\NTT.Identity.exe
 C:\Development\repo\NTT_P2\NTT\bin\Debug\net5.0\appsettings.Development.json
 C:\Development\repo\NTT_P2\NTT\bin\Debug\net5.0\appsettings.json
