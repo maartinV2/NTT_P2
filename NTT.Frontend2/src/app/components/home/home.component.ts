@@ -61,8 +61,7 @@ export class HomeComponent implements OnInit {
 
    }
    updateFilteredIssues(){
-    this.filteredImages= this.filterString=== ""? this.filteredImages: this.filteredImages.filter(image=> (image.location.toLocaleLowerCase().includes(this.filterString.toLocaleLowerCase()) || image.name.toLocaleLowerCase().includes(this.filterString.toLocaleLowerCase())));
-    this.filteredImages= this.filterString=== ""? this.filteredImages: this.filteredImages.filter(image=> (image.name.toLocaleLowerCase().includes(this.filterString.toLocaleLowerCase()) || image.name.toLocaleLowerCase().includes(this.filterString.toLocaleLowerCase())));
+    this.filteredImages= this.filterString=== ""? this.filteredImages: this.filteredImages.filter(image=> (image.name.toLocaleLowerCase().includes(this.filterString.toLocaleLowerCase()) || image.name.toLocaleLowerCase().includes(this.filterString.toLocaleLowerCase())||image.location.toLocaleLowerCase().includes(this.filterString.toLocaleLowerCase()) || image.name.toLocaleLowerCase().includes(this.filterString.toLocaleLowerCase())));
 
     if(this.filteredImages.length<1 ||this.filterString=== "")
     {
